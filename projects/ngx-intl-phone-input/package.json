@@ -1,6 +1,6 @@
 {
 	"name": "ngx-intl-phone-input",
-	"version": "18.0.5",
+	"version": "18.0.6",
 	"peerDependencies": {
 		"@angular/common": "8.x - 18.x",
 		"@angular/core": "8.x - 18.x",
@@ -19,10 +19,10 @@
 	},
 	"keywords": [
 		"angular",
-    	"angular 18",
+		"angular 18",
 		"intl-tel-input",
 		"phone number",
-    "phone input with mask",
+		"phone input with mask",
 		"validation"
 	],
 	"license": "MIT",
