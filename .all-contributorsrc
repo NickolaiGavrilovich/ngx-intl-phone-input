@@ -1,0 +1,30 @@
+{
+  "projectName": "ngx-intl-phone-input",
+  "projectOwner": "NickolaiGavrilovich",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "NickolaiGavrilovich",
+      "name": "Nickolai Gavrilovich",
+      "avatar_url": "",
+      "profile": "https://github.com/NickolaiGavrilovich",
+      "contributions": [
+        "design",
+        "code",
+        "doc",
+        "example",
+        "maintenance",
+        "review",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true
+}

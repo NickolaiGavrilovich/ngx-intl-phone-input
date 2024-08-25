@@ -1,0 +1,35 @@
+{
+	"name": "ngx-intl-phone-input",
+	"version": "18.0.5",
+	"peerDependencies": {
+		"@angular/common": "8.x - 18.x",
+		"@angular/core": "8.x - 18.x",
+		"@angular/forms": "8.x - 18.x",
+		"google-libphonenumber": "^3.2.3",
+		"intl-tel-input": "^17.0.3",
+		"ngx-bootstrap": ">= 6.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/NickolaiGavrilovich/ngx-intl-phone-input"
+	},
+	"author": {
+		"name": "NickolaiGavrilovich",
+		"email": "nickolai.gavrilovich@gmail.com"
+	},
+	"keywords": [
+		"angular",
+    	"angular 18",
+		"intl-tel-input",
+		"phone number",
+    "phone input with mask",
+		"validation"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/NickolaiGavrilovich/ngx-intl-phone-input/issues"
+	},
+	"devDependencies": {
+		"@types/google-libphonenumber": "^7.4.17"
+	}
+}

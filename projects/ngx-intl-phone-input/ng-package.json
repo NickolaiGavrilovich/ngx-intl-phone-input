@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ngx-intl-phone-input",
+  "lib": {
+    "entryFile": "src/public_api.ts"
+  },
+  "assets": [
+    "src/lib/bootstrap-dropdown.css",
+    "src/lib/ngx-intl-phone-input.component.css"
+  ]
+}
