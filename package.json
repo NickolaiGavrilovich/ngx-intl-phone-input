@@ -1,6 +1,6 @@
 {
   "name": "ngx-intl-phone-input-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -57,7 +57,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^18.1.0",
-		"ngx-mask": "^18.0.0",
+    "ngx-mask": "^18.0.0",
     "prettier": "^2.0.5",
     "protractor": "^7.0.0",
     "rollup": "^2.22.0",
