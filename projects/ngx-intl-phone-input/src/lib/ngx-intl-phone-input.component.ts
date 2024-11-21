@@ -67,6 +67,7 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 	@Input() separateDialCode = false;
 	@Input() useMask = false;
 	@Input() showMaskTyped = false;
+	@Input() exclusionarySearch = false;
 	separateDialCodeClass: string;
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
@@ -86,6 +87,7 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 
 	phoneNumber: string | undefined = '';
 	allCountries: Array<Country> = [];
+	allTempCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
 	// Has to be 'any' to prevent a need to install @types/google-libphonenumber by the package user...
 	phoneUtil: any = lpn.PhoneNumberUtil.getInstance();
@@ -170,6 +172,7 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 			return;
 		}
 		const countrySearchTextLower = this.countrySearchText.toLowerCase();
+
 		// @ts-ignore
 		const country = this.allCountries.filter((c) => {
 			if (this.searchCountryField.indexOf(SearchCountryField.All) > -1) {
@@ -203,6 +206,13 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 			}
 		});
 
+
+		if (this.exclusionarySearch) {
+			this.allTempCountries = country;
+			return;
+		}
+
+
 		if (country.length > 0) {
 			const el = this.countryList.nativeElement.querySelector(
 				'#' + country[0].htmlId
@@ -217,6 +227,18 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 		}
 
 		this.checkSeparateDialCodeStyle();
+	}
+
+	public get getAllCountries() {
+		if (this.countrySearchText.length) {
+			if (this.exclusionarySearch) {
+				return this.allTempCountries;
+			} else {
+				return this.allCountries;
+			}
+		} else {
+			return this.allCountries;
+		}
 	}
 
 	public onPhoneNumberChange(): void {
