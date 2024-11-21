@@ -10,11 +10,11 @@
 				[formGroup]="phoneForm">
 		<div class="wrapper">
 			<ngx-intl-phone-input [cssClass]="'custom'"
-													[preferredCountries]="preferredCountries"
 													[enableAutoCountrySelect]="true"
 													[enablePlaceholder]="true"
 													[searchCountryFlag]="true"
-													[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+													[exclusionarySearch]="true"
+													[searchCountryField]="[SearchCountryField.Name]"
 													[selectFirstCountry]="false"
 													[phoneValidation]="true" [useMask]="true" [showMaskTyped]="true"
 													[separateDialCode]="separateDialCode"
