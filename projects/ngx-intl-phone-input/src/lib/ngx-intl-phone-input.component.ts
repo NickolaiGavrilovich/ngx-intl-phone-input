@@ -65,6 +65,7 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 	@Input() phoneValidation = false;
 	@Input() inputId = 'phone';
 	@Input() separateDialCode = false;
+	@Input() includeDialCode = false;
 	@Input() useMask = false;
 	@Input() showMaskTyped = false;
 	@Input() exclusionarySearch = false;
@@ -85,7 +86,7 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 		priority: 0,
 	};
 
-	phoneNumber: string | undefined = '';
+	phoneNumber: string = '';
 	allCountries: Array<Country> = [];
 	allTempCountries: Array<Country> = [];
 	preferredCountriesInDropDown: Array<Country> = [];
@@ -94,6 +95,7 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 	disabled = false;
 	errors: Array<any> = ['Phone number is required.'];
 	countrySearchText = '';
+	includedCountryCode = '';
 
 	@ViewChild('countryList') countryList: ElementRef;
 
@@ -154,7 +156,37 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 
 	setSelectedCountry(country: Country) {
 		this.selectedCountry = country;
+		this.includeCountryCodeToInput(country.dialCode);
 		this.countryChange.emit(country);
+	}
+
+	public includeCountryCodeToInput(value: string) {
+		if (this.includeDialCode) {
+			if (this.includedCountryCode.length > 0) {
+				this.phoneNumber = this.phoneNumber.replace(this.includedCountryCode, '');
+			}
+			this.includedCountryCode = value;
+			this.phoneNumber = `${this.includedCountryCode}${this.phoneNumber}`
+			const input = document.getElementById(this.inputId) as HTMLInputElement;
+			setTimeout(() => {
+				this.setCaretPosition(input, this.includedCountryCode.length + 1);
+			}, 0);
+			this.onPhoneNumberChange();
+		}
+	}
+
+	private setCaretPosition(ctrl: any, pos: number) {
+		if (ctrl.setSelectionRange) {
+			ctrl.focus();
+			ctrl.setSelectionRange(pos,pos);
+			console.log('####### 2', ctrl, pos);
+	 	} else if (ctrl.createTextRange) {
+			var range = ctrl.createTextRange();
+			range.collapse(true);
+			range.moveEnd('character', pos);
+			range.moveStart('character', pos);
+			range.select();
+	 	}
 	}
 
 	/**
@@ -205,7 +237,6 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 				}
 			}
 		});
-
 
 		if (this.exclusionarySearch) {
 			this.allTempCountries = country;
