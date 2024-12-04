@@ -179,7 +179,6 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 		if (ctrl.setSelectionRange) {
 			ctrl.focus();
 			ctrl.setSelectionRange(pos,pos);
-			console.log('####### 2', ctrl, pos);
 	 	} else if (ctrl.createTextRange) {
 			var range = ctrl.createTextRange();
 			range.collapse(true);
