@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "build_stats": "ng build --stats-json",
     "analyze": "webpack-bundle-analyzer dist/ngx-intl-phone-input-app/stats.json",
-    "build_lib": "ng build ngx-intl-phone-input-app",
+    "build_lib": "ng build ngx-intl-phone-input",
     "copy-license": "cp ./LICENSE ./dist/ngx-intl-phone-input",
     "copy-readme": "cp ./README.md ./dist/ngx-intl-phone-input",
     "copy-files": "npm run copy-license && npm run copy-readme",
