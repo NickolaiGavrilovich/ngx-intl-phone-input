@@ -156,22 +156,23 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 
 	setSelectedCountry(country: Country) {
 		this.selectedCountry = country;
-		this.includeCountryCodeToInput(country.dialCode);
+		this.includeCountryCodeToInput(country);
 		this.countryChange.emit(country);
 	}
 
-	public includeCountryCodeToInput(value: string) {
+	public includeCountryCodeToInput(country: Country) {
 		if (this.includeDialCode) {
 			if (this.includedCountryCode.length > 0) {
 				this.phoneNumber = this.phoneNumber.replace(this.includedCountryCode, '');
 			}
-			this.includedCountryCode = value;
+			this.includedCountryCode = country.dialCode;
 			this.phoneNumber = `${this.includedCountryCode}${this.phoneNumber}`
 			const input = document.getElementById(this.inputId) as HTMLInputElement;
 			setTimeout(() => {
 				this.setCaretPosition(input, this.includedCountryCode.length + 1);
 			}, 0);
 			this.onPhoneNumberChange();
+			this.countryChange.emit(country);
 		}
 	}
 
