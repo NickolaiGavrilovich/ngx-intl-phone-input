@@ -157,7 +157,6 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 	setSelectedCountry(country: Country) {
 		this.selectedCountry = country;
 		this.includeCountryCodeToInput(country);
-		this.countryChange.emit(country);
 	}
 
 	public includeCountryCodeToInput(country: Country) {
@@ -172,6 +171,8 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 				this.setCaretPosition(input, this.includedCountryCode.length + 1);
 			}, 0);
 			this.onPhoneNumberChange();
+			this.countryChange.emit(country);
+		} else {
 			this.countryChange.emit(country);
 		}
 	}
