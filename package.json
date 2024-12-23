@@ -15,7 +15,7 @@
     "copy-readme": "cp ./README.md ./dist/ngx-intl-phone-input",
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "npm run copy-files && cd dist/ngx-intl-phone-input && npm pack",
-  "package": "npm run build_lib && npm run N  B XA M  `    ",
+    "package": "npm run build_lib && npm run npm_pack",
     "postinstall": "ngcc"
   },
   "dependencies": {
