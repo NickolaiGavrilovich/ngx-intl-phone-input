@@ -1,6 +1,6 @@
 {
 	"name": "ngx-intl-phone-input",
-	"version": "18.0.13",
+	"version": "18.0.14",
 	"peerDependencies": {
 		"@angular/common": "8.x - 18.x",
 		"@angular/core": "8.x - 18.x",

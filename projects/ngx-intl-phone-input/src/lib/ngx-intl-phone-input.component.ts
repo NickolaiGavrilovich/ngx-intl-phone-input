@@ -69,6 +69,8 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 	@Input() useMask = false;
 	@Input() showMaskTyped = false;
 	@Input() exclusionarySearch = false;
+
+	@Input() localization: 'en' | 'ru' = 'en';
 	separateDialCodeClass: string;
 
 	@Output() readonly countryChange = new EventEmitter<Country>();
@@ -563,7 +565,7 @@ export class NgxIntlPhoneInputComponent implements OnInit, OnChanges {
 	protected fetchCountryData(): void {
 		this.allCountries = [];
 
-		this.countryCodeData.allCountries.forEach((c) => {
+		this.countryCodeData.allCountries[this.localization].forEach((c) => {
 			const country: Country = {
 				name: c[0].toString(),
 				iso2: c[1].toString(),
